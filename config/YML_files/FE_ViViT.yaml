@@ -1,0 +1,70 @@
+# store_file.yaml file contents:
+
+- model_inputs:
+    model_type: ViViT_model2
+    num_classes: 2
+    image_size: 224
+    num_frames: 2
+    channels: 3
+    weighted: true
+    num_test: 10
+
+    ViViT_model2:
+      patch_size: 16
+      dim: 768
+      depth: 12
+      heads: 12
+      pool: 'cls'
+      dim_head: 64
+      dropout: 0.
+      emb_dropout: 0.
+      scale_dim: 4
+      with_pose: true
+
+
+- dataset:
+    # the .csv file includes the path for the volumes and also the corresponding label
+    dataset_name: OLIVES
+    annotation_path_train: path2train_data.csv
+    annotation_path_test: path2test_data.csv
+    annotation_path_val: path2val_data.csv
+    shuffle: True
+    num_workers: 10
+    loader_type: random_middle # available types: random, variable, fixed, central
+
+- train_config:
+      train: false
+      pretrain: false
+      resume: false
+      allow_size_mismatch: false
+      load_path: path2pretrained_model
+      checkpoint: checkpoint_name
+      num_epochs: 1
+      batch_size: 8
+      use_gpu: true
+      init_lr:  6.0e-8
+      max_lr: 0.003
+      min_lr: 0.003
+      warmup_lr: 0.003
+      warmup_steps: -1
+      warmup_epochs: 10
+      T_mult: 1
+      eta_min: 0
+      last_epoch: -1
+      update_freq: 1
+      base_lr_cyclic: 3.0e-15
+      optimizer: adamw
+      scheduler: cosine_with_warmup
+      step_coeff: 8
+      momentum: 0.9
+      weight_decay: 0.02
+      weight_decay_end: none # Final value of the weight decay. We use a cosine schedule for WD and using a larger decay by the end of training improves performance for ViTs.
+      mixups_alpha: 0.
+      rand_aug: true
+      rand_test: false
+
+- log:
+    save_path: path2save
+
+- where : base_path
+

@@ -1,0 +1,20 @@
+#!/bin/sh
+#SBATCH --nodes=1
+#SBATCH --gres=gpu:1
+#Email notification
+#SBATCH --mail-type=FAIL
+#SBATCH --mail-user=
+#SBATCH --partition=centos7
+#SBATCH --exclude=on2
+#SBATCH --nodelist=on4
+#SBATCH --qos=normal
+#SBATCH --ntasks=10
+#SBATCH --mem=128G
+#SBATCH --time=3-00:00:00
+#SBATCH --job-name=TRAIN
+
+cd /VLFAT/sigularity_conf
+
+echo "!!!!!!START!!!!!!"
+singularity exec --nv --bind path-on-host/VLFAT:path-in-container/VLFAT sing_file.sif /bin/bash /VLFAT/run_CMDs/ViT.sh
+echo "!!!!!!FINISHED!!!!!!"
