@@ -2,7 +2,7 @@ def ViT_create_model(model_config, model_layout, logger):
 
     if model_config['model_type'] == 'FEViViT':  # first spatial within each frame and
         # then temporal attention among all the video frames
-        from model_zoo.ViViT.models import FEViViT
+        from model_zoo.ViViTs.models import FEViViT
         model = FEViViT(image_size=model_config['image_size'],
                         patch_size=model_layout['patch_size'],
                         num_classes=model_config['num_classes'],
@@ -19,7 +19,7 @@ def ViT_create_model(model_config, model_layout, logger):
                         with_pose=model_layout['with_pose'])
     elif model_config['model_type'] == 'FSAViViT':  # first spatial and then temporal attention
         # but it is repeated in each block
-        from model_zoo.ViViT.models import FSAViViT
+        from model_zoo.ViViTs.models import FSAViViT
         model = FSAViViT(t=model_config['num_frames'],
                          h=model_config['image_size'],
                          w=model_config['image_size'],

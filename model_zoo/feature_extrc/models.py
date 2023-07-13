@@ -81,7 +81,7 @@ class ViT_VaR(nn.Module):
         assert interpolation_type in ['nearest', 'linear']
         self.interpolation_type = interpolation_type
         self.feature_extractor_spacial = timm.create_model(self.model_type, pretrained=self.pretrained, num_classes=0)
-        from model_zoo.ViViT.models import Transformer
+        from model_zoo.ViViTs.models import Transformer
         self.temporal_token = nn.Parameter(torch.randn(1, 1, dim))
         num_patches = self.n_frames + 1
         self.temporal_pos_encodings = nn.Parameter(torch.zeros(1, num_patches, dim))
@@ -133,7 +133,7 @@ class ViT_baseline(nn.Module):
 
         self.feature_extractor_spacial = timm.create_model(self.model_type, pretrained=self.pretrained, num_classes=0)
 
-        from model_zoo.ViViT.models import Transformer
+        from model_zoo.ViViTs.models import Transformer
         self.temporal_token = nn.Parameter(torch.randn(1, 1, dim))
         """Part for positional encoding"""
         num_patches = self.n_frames
@@ -199,7 +199,7 @@ class ViT_SinCos(nn.Module):
 
         self.feature_extractor_spacial = timm.create_model(self.model_type, pretrained=self.pretrained, num_classes=0)
 
-        from model_zoo.ViViT.models import Transformer
+        from model_zoo.ViViTs.models import Transformer
         self.temporal_token = nn.Parameter(torch.randn(1, 1, dim))
         self.pos_encoder = PositionalEncoding(dim, dropout=0.5)
 
