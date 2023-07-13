@@ -3,10 +3,6 @@
 #SBATCH --gres=gpu:1
 #Email notification
 #SBATCH --mail-type=FAIL
-#SBATCH --mail-user=
-#SBATCH --partition=centos7
-#SBATCH --exclude=on2
-#SBATCH --nodelist=on4
 #SBATCH --qos=normal
 #SBATCH --ntasks=10
 #SBATCH --mem=128G
