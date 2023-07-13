@@ -1,9 +1,10 @@
 # VLFAT
 This repository contains the source code of the following paper that is accepted for MICCAI 2023:
-**Transformer-based end-to-end classification of variable-length volumetric data**, Marzieh Oghbaie, Teresa Ara'ujo, Taha Emre, Ursula Schmidt-Erfurth, Hrvoje Bogunovi
+**Transformer-based end-to-end classification of variable-length volumetric data**, Marzieh Oghbaie, Teresa Araujo, Taha Emre, Ursula Schmidt-Erfurth, Hrvoje Bogunovic
+
 The proposed network deploys Transformers for volume classification that is able to handle variable volume resolutions both at development and inference time.  
 ## Proposed Approach for 3D volume Classification 
-[!image](https://github.com/marziehoghbaie/VLFAT/blob/70bbe57399d2b2e2fc23fc96e0aff112ce208228/assets/general_approach.png)
+[!image](https://github.com/marziehoghbaie/VLFAT/tree/86425533830b094b4644bdc1f2b9dca661b80616/assets/general_approach.png)
 
 The main models are available at `model_zoo/feature_extrc/models.py`.
 
@@ -15,7 +16,7 @@ Please check [INSTALL.md](INSTALL.md) for installation instructions.
 ## Evaluation
 - Simple Test with confusion matrix: set the `train: false` and `allow_size_mismatch: false` under `train_config` in the corresponding config file. 
 ```shell
-python main/Smain.py --config_path config/YML_files/FAT.yaml
+python main/Smain.py --config_path config/YML_files/FAT.yaml 
 ```
 
 - Calculate AUC of all the models. A list of the corresponding configs should be provided:
