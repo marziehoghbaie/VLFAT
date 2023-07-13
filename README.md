@@ -3,8 +3,8 @@ This repository contains the source code of the following paper that is accepted
 **Transformer-based end-to-end classification of variable-length volumetric data**, Marzieh Oghbaie, Teresa Araujo, Taha Emre, Ursula Schmidt-Erfurth, Hrvoje Bogunovic
 
 The proposed network deploys Transformers for volume classification that is able to handle variable volume resolutions both at development and inference time.  
-## Proposed Approach for 3D volume Classification 
-[!image](https://github.com/marziehoghbaie/VLFAT/tree/86425533830b094b4644bdc1f2b9dca661b80616/assets/general_approach.png)
+## Proposed Approach for 3D volume Classification
+<img src="assets/general_approach.png" alt="Alt text" title="Optional title">
 
 The main models are available at `model_zoo/feature_extrc/models.py`.
 
