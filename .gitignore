@@ -5,3 +5,4 @@ model_zoo/__pycache__/
 test_files/__pycache__/
 train_files/__pycache__/
 utils/__pycache__/
+model_zoo/feature_extrc/__pycache__/
