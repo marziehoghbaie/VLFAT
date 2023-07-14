@@ -4,8 +4,7 @@ from torch.utils.data import DataLoader
 
 from data.channel_wise_aug import available_augmentations
 from data.data_loader_multi_class import Multiclass_ds
-from data.data_loader_binary import OLIVES_ds
-from data.data_loader_duke import Duke_ds
+from data.data_loader_binary import OLIVES_ds, Duke_ds
 
 
 def create_dataloaders(dataset_info, train_config, model_config, model_layout, logger, where):
