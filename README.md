@@ -12,11 +12,16 @@ The main models are available at `model_zoo/feature_extrc/models.py`.
 ## Installation
 Please check [INSTALL.md](INSTALL.md) for installation instructions. 
 
+## Training
+For OLIVES dataset, the list of samples should be provided in a `.csv` file under `dataset` to `annotation_path_test` field. The file should at least includes `sample_path`,`FileSetId`,`label`,`label_int`,`n_frames`.
+On Duke dataset, however, give the directory of the samples arranged like the following to the dataloader is sufficient: `subset/class`.
+```shell
+python main/Smain.py --config_path config/YML_files/VLFAT.yaml
+```
 
 ## Evaluation
-- Simple Test with confusion matrix: set the `train: false` and `allow_size_mismatch: false` under `train_config` in the corresponding config file. 
-For OLIVES dataset, the list of test samples should be provided in a `.csv` under `dataset` to `annotation_path_test`.
-On Duke datset, however, 
+- Simple Test with confusion matrix: set the `train: false` and `allow_size_mismatch: false` under `train_config` in the corresponding config file.
+ 
 ```shell
 python main/Smain.py --config_path config/YML_files/FAT.yaml 
 ```
@@ -26,16 +31,11 @@ python main/Smain.py --config_path config/YML_files/FAT.yaml
 python main/Stest_AUC.py
 ```
 
-- Robustness Analysis: The test is run for `num_test` under `model_inputs` in the corresponding config file and teh results are saved in teh corresponding `log` file. This test only works for  
+- Robustness Analysis: The test is run for `num_test` under `model_inputs` in the corresponding config file and the results are saved in the corresponding `log` file. This test only works for  
 ```shell
 python main/Stest_robustness.py --config_path config/YML_files/VLFAT.yaml
 ```
 Note that the list of possible volume resolutions can be changed in the `main/Stest_robustness.py` file (e.g. `volume_resolutions = [5, 15, 25, 35, 45]`).
-
-## Training
-```shell
-python main/Smain.py --config_path config/YML_files/VLFAT.yaml
-```
 
 
 ## Acknowledgement
