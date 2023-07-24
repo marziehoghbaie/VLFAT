@@ -1,5 +1,5 @@
 # VLFAT
-This repository contains the source code of the following paper that is accepted for MICCAI 2023(Available at  [arXiv](http://arxiv.org/abs/2307.06666):
+This repository contains the source code of the following paper that is accepted for MICCAI 2023(Available at  [arXiv](http://arxiv.org/abs/2307.06666)):
 **Transformer-based end-to-end classification of variable-length volumetric data**, Marzieh Oghbaie, Teresa Araujo, Taha Emre, Ursula Schmidt-Erfurth, Hrvoje Bogunovic
 
 The proposed network deploys Transformers for volume classification that is able to handle variable volume resolutions both at development and inference time.  
