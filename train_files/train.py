@@ -94,7 +94,7 @@ def train_val(train_config,
                                                                                  running_corrects / running_all,
                                                                                  running_loss / running_all))
                 logger.info('[INFO] Current learning rate (get from optimizer): {}'.format(showLR(optimizer)))
-            break
+            
         print('[INFO] Validation loop ...')
         logger.info('[INFO] This training epoch took {} sec'.format(time.time() - epoch_time))
         val_time = time.time()
