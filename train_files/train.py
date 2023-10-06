@@ -58,7 +58,6 @@ def train_val(train_config,
             # Forward Pass
             images, labels = images.to(device), labels.to(device)
             images, labels = map(Variable, (images, labels))
-            # print(images.shape, labels.shape)
             logits = model(images)
             _, preds = torch.max(F.softmax(logits, dim=1).data, dim=1)
             running_corrects += preds.eq(labels.view_as(preds)).sum().item()
@@ -94,7 +93,7 @@ def train_val(train_config,
                                                                                  running_corrects / running_all,
                                                                                  running_loss / running_all))
                 logger.info('[INFO] Current learning rate (get from optimizer): {}'.format(showLR(optimizer)))
-            
+
         print('[INFO] Validation loop ...')
         logger.info('[INFO] This training epoch took {} sec'.format(time.time() - epoch_time))
         val_time = time.time()
@@ -145,13 +144,13 @@ def train_val(train_config,
         epochs_acc_val.append(val_acc)
         epochs_loss_val.append(val_loss)
 
-    if VLFAT:
-        """part for variable length"""
-        var_length = [5, 10, 15, 20, 25]
-        n_b_scans_new = np.random.choice(var_length)
-        train_loader.dataset.n_frames = n_b_scans_new
-        val_loader.dataset.n_frames = n_b_scans_new
-        logger.info('the number of b-scans is set to {}'.format(train_loader.dataset.n_frames))
+        if VLFAT:
+            """part for variable length"""
+            var_length = [5, 10, 15, 20, 25]
+            n_b_scans_new = np.random.choice(var_length)
+            train_loader.dataset.n_frames = n_b_scans_new
+            val_loader.dataset.n_frames = n_b_scans_new
+            logger.info('the number of b-scans is set to {}'.format(train_loader.dataset.n_frames))
 
     writer.close()
     draw_results([epochs_loss, epochs_acc, epochs_loss_val, epochs_acc_val], save_path=ckpt_saver.save_dir)
