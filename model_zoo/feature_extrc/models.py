@@ -101,8 +101,6 @@ class ViT_VaR(nn.Module):
             tmp = Fun.interpolate(self.temporal_pos_encodings.transpose(-2, -1),
                                   num_patch_new,
                                   mode=self.interpolation_type).transpose(-2, -1)
-            #self.temporal_pos_encodings = nn.Parameter(tmp)
-            trunc_normal_(self.temporal_pos_encodings, std=.02)
 
         return self.temporal_pos_encodings
 
