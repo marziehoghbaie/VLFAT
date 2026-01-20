@@ -7,7 +7,7 @@ The proposed network deploys Transformers for volume classification that is able
 <img src="assets/general_approach.png" alt="Alt text" title="Optional title">
 
 The main models are available at `model_zoo/feature_extrc/models.py`.
-
+**weights are now available at release: https://github.com/marziehoghbaie/VLFAT/releases/tag/weights**
 
 ## Installation
 Please check [INSTALL.md](INSTALL.md) for installation instructions. 
